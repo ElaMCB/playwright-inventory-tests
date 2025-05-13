@@ -1,0 +1,25 @@
+{
+  "name": "playwright-regression-tests",
+  "version": "1.0.0",
+  "description": "Automated regression test suite using Playwright",
+  "main": "index.js",
+  "scripts": {
+    "test:regression": "playwright test --config=playwright.regression.config.ts",
+    "test:mobile": "playwright test --config=playwright.mobile.config.ts"
+  },
+  "keywords": [
+    "playwright",
+    "testing",
+    "regression",
+    "e2e",
+    "automation",
+    "mobile"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.52.0",
+    "@types/node": "^22.14.1",
+    "dotenv": "^16.5.0"
+  }
+}
