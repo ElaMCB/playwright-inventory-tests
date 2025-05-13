@@ -154,4 +154,18 @@ export class InventorySearchPage {
         await this.page.keyboard.press('Tab');
         await expect(this.page.locator(this.reportTypeDropdown)).toBeFocused();
     }
+
+    async verifySearchResults() {
+        // Wait for loading spinner to disappear
+        await this.page.waitForSelector(this.loadingSpinner, { state: 'hidden' });
+
+        // Verify either summary or detail report is visible
+        const summaryVisible = await this.page.locator(this.summaryReport).isVisible();
+        const detailVisible = await this.page.locator(this.detailReport).isVisible();
+        
+        expect(summaryVisible || detailVisible).toBeTruthy();
+
+        // Verify no error message is shown
+        await expect(this.page.locator(this.errorMessage)).not.toBeVisible();
+    }
 } 
